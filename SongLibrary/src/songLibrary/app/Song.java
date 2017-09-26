@@ -19,7 +19,7 @@ public class Song {
 		return name + "," + artist + "," + album + "," + year;
 	}
 	
-	public void SetFields(String information) {
+	public void setFields(String information) {
 		int firstComma = information.indexOf(",", 0);
 		int secondComma = information.indexOf(",", firstComma + 1);
 		int thirdComma = information.indexOf(",", secondComma + 1);
