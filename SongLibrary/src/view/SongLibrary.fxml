@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<GridPane
+	xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="view.SongLibraryController"
+	vgap="100" hgap="100">
+	<children>
+      <ListView fx:id="listView"
+      	prefHeight="200.0"
+      	prefWidth="200.0"
+      	AnchorPane.bottomAnchor="10.0"
+      	AnchorPane.leftAnchor="10.0"
+      	AnchorPane.rightAnchor="10.0"
+      	AnchorPane.topAnchor="10.0" />
+    </children>
+    <Button fx:id="add" text="Add" GridPane.columnIndex="0" onAction="#showItemInputDialog"/>
+    <Button fx:id="del" text="Delete" GridPane.columnIndex="1" onAction="#removeItem"/>
+    <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog"/>
+	<Text text="Song Name" GridPane.columnIndex="0" GridPane.valignment="BOTTOM"/>
+	<Text text="Artist Name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM"/>
+	<Text text="Year" GridPane.columnIndex="2" GridPane.valignment="BOTTOM"/>
+	<Text text="Album" GridPane.columnIndex="3" GridPane.valignment="BOTTOM"/>
+
+	<padding>
+		<Insets top="10" right="10" bottom="10" left="10"/>
+	</padding>
+
+</GridPane>
