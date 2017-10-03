@@ -12,20 +12,21 @@
 	vgap="10" hgap="10">
 	<children>
       <ListView fx:id="listView"
-      	prefHeight="200.0"
+      	prefHeight="500.0"
       	prefWidth="200.0"
       	AnchorPane.bottomAnchor="10.0"
       	AnchorPane.leftAnchor="10.0"
       	AnchorPane.rightAnchor="10.0"
       	AnchorPane.topAnchor="10.0" />
 	</children>
-	<Text text="Song Name" GridPane.columnIndex="1" GridPane.valignment="TOP"/>
-	<Text text="Artist Name" GridPane.columnIndex="2" GridPane.valignment="TOP"/>
+	<Text text="Song Name         " GridPane.columnIndex="1" GridPane.valignment="TOP"/>
+	<Text text="Artist Name           " GridPane.columnIndex="2" GridPane.valignment="TOP"/>
 	<Text text="Year" GridPane.columnIndex="3" GridPane.valignment="TOP"/>
-	<Text text="Album" GridPane.columnIndex="4" GridPane.valignment="TOP"/>
+	<Text text="Album        " GridPane.columnIndex="4" GridPane.valignment="TOP"/>
     <Button fx:id="add" text="Add" GridPane.columnIndex="1" onAction="#showItemInputDialog" GridPane.valignment="BOTTOM"/>
-    <Button fx:id="del" text="Delete" GridPane.columnIndex="2" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
-    <Button fx:id="edit" text="Edit" GridPane.columnIndex="3" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="del" text="Delete" GridPane.columnIndex="3" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
+
 
 	<padding>
 		<Insets top="10" right="10" bottom="10" left="10"/>
