@@ -9,7 +9,7 @@
 	xmlns="http://javafx.com/javafx/8.0.40"
 	xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="view.SongLibraryController"
-	vgap="100" hgap="100">
+	vgap="10" hgap="10">
 	<children>
       <ListView fx:id="listView"
       	prefHeight="200.0"
@@ -18,7 +18,7 @@
       	AnchorPane.leftAnchor="10.0"
       	AnchorPane.rightAnchor="10.0"
       	AnchorPane.topAnchor="10.0" />
-    </children>
+	</children>
     <Button fx:id="add" text="Add" GridPane.columnIndex="0" onAction="#showItemInputDialog"/>
     <Button fx:id="del" text="Delete" GridPane.columnIndex="1" onAction="#removeItem"/>
     <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog"/>

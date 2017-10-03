@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import songLibrary.app.Song;;
@@ -49,7 +50,7 @@ public class SongLibraryController {
 		for(int i = 0; i < songList.size(); i++) {
 			System.out.println(songList.get(i).toString());
 		}
-		*/	
+		*/
 
 
 	}
@@ -138,5 +139,7 @@ public class SongLibraryController {
 
 		return songList;
 	}
-
+	public void showItemInputDialog(ActionEvent e){};
+	public void removeItem(ActionEvent e){};
+	public void showItemEditDialog(ActionEvent e){};
 }
