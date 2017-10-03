@@ -8,9 +8,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import songLibrary.app.Song;;
 
 public class SongLibraryController {
+	@FXML Button add;
+	@FXML Button del;
+	@FXML Button edit;
+
 	public static File songFile = new File("SongFile.txt");
 
 	public static void main(String[] args) {
@@ -18,7 +24,7 @@ public class SongLibraryController {
 
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
 		// this will NOT affect the code
-		
+		/*
 		Song song = new Song();
 
 		song.name = "halo";
@@ -32,15 +38,14 @@ public class SongLibraryController {
 
 		save(songList);
 
-		/*
 		String test = "name,artist,album,year";
 
 		song.setFields(test);
 
 		System.out.println(song.toString());
-		
+
 		songList = readFile();
-		
+
 		for(int i = 0; i < songList.size(); i++) {
 			System.out.println(songList.get(i).toString());
 		}
@@ -92,7 +97,7 @@ public class SongLibraryController {
 	}
 
 	/*
-	 * Read the songFile and returns an ArrayList of songs 
+	 * Read the songFile and returns an ArrayList of songs
 	 */
 	public static ArrayList<Song> readFile(){
 		ArrayList<Song> songList = new ArrayList<Song>();
@@ -129,7 +134,7 @@ public class SongLibraryController {
 				ex.printStackTrace();
 			}
 		}
-		
+
 
 		return songList;
 	}
