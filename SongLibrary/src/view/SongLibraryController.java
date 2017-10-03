@@ -18,7 +18,7 @@ public class SongLibraryController {
 
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
 		// this will NOT affect the code
-		/*
+		
 		Song song = new Song();
 
 		song.name = "halo";
@@ -32,21 +32,20 @@ public class SongLibraryController {
 
 		save(songList);
 
+		/*
 		String test = "name,artist,album,year";
 
 		song.setFields(test);
 
 		System.out.println(song.toString());
 		
-		ArrayList<Song> songList = new ArrayList<Song>();
-		
 		songList = readFile();
 		
 		for(int i = 0; i < songList.size(); i++) {
 			System.out.println(songList.get(i).toString());
 		}
-		
-		*/
+		*/	
+
 
 	}
 
