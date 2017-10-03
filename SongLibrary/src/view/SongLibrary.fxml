@@ -19,13 +19,13 @@
       	AnchorPane.rightAnchor="10.0"
       	AnchorPane.topAnchor="10.0" />
 	</children>
-    <Button fx:id="add" text="Add" GridPane.columnIndex="0" onAction="#showItemInputDialog"/>
-    <Button fx:id="del" text="Delete" GridPane.columnIndex="1" onAction="#removeItem"/>
-    <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog"/>
-	<Text text="Song Name" GridPane.columnIndex="0" GridPane.valignment="BOTTOM"/>
-	<Text text="Artist Name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM"/>
-	<Text text="Year" GridPane.columnIndex="2" GridPane.valignment="BOTTOM"/>
-	<Text text="Album" GridPane.columnIndex="3" GridPane.valignment="BOTTOM"/>
+	<Text text="Song Name" GridPane.columnIndex="1" GridPane.valignment="TOP"/>
+	<Text text="Artist Name" GridPane.columnIndex="2" GridPane.valignment="TOP"/>
+	<Text text="Year" GridPane.columnIndex="3" GridPane.valignment="TOP"/>
+	<Text text="Album" GridPane.columnIndex="4" GridPane.valignment="TOP"/>
+    <Button fx:id="add" text="Add" GridPane.columnIndex="1" onAction="#showItemInputDialog" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="del" text="Delete" GridPane.columnIndex="2" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="edit" text="Edit" GridPane.columnIndex="3" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
 
 	<padding>
 		<Insets top="10" right="10" bottom="10" left="10"/>
