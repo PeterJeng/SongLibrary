@@ -102,6 +102,21 @@ public class SongLibraryController {
 		addConfirm.setVisible(true);
 
 	};
+	public void confirmItemInputDialog(ActionEvent e){
+		Song song = new Song();
+		song.name = nameInput.getText();
+		song.album = albumInput.getText();
+		song.artist = artistInput.getText();
+		song.year = yearInput.getText();
+		songList.list.add(song);
+		songList.sort();
+		songList.save();
+		obsList.clear();
+		obsList = FXCollections.observableArrayList(songList.list);
+		listView.setItems(obsList);
+		cancellation(e);
+
+	};
 	public void removeItem(ActionEvent e){
 		edit.setDisable(true);
 		add.setDisable(true);
@@ -137,9 +152,16 @@ public class SongLibraryController {
 		add.setDisable(false);
 		del.setDisable(false);
 		edit.setDisable(false);
-		addConfirm.setDisable(false);
-		deConfirm.setDisable(false);
-		editConfirm.setDisable(false);
+		add.setVisible(true);
+		del.setVisible(true);
+		edit.setVisible(true);
+		addConfirm.setDisable(true);
+		deConfirm.setDisable(true);
+		editConfirm.setDisable(true);
+		addConfirm.setVisible(false);
+		deConfirm.setVisible(false);
+		editConfirm.setVisible(false);
+		delConfirm.setText("");
 		cancel.setDisable(true);
 		cancel.setVisible(false);
 	};
