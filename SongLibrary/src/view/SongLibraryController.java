@@ -45,6 +45,7 @@ public class SongLibraryController {
 		songList.save();
 		obsList = FXCollections.observableArrayList(songList);
 		listView.setItems(obsList);
+		listView.getSelectionModel().select(0);
 
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
