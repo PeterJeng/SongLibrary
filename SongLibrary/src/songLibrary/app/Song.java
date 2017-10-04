@@ -21,11 +21,10 @@ public class Song implements Comparable<Song>{
 	@Override
 	public int compareTo(Song songToCompare) {
 		//checks to see if the names are equal, if they are compare by artist, else compare by name
-
 		if(this.name.equals(songToCompare.name))
-			return this.artist.compareTo(songToCompare.artist);
+			return this.artist.compareToIgnoreCase(songToCompare.artist);
 		else
-			return this.name.compareTo(songToCompare.name);
+			return this.name.compareToIgnoreCase(songToCompare.name);
 	}
 
 	/*
@@ -54,5 +53,8 @@ public class Song implements Comparable<Song>{
 		return name + " - " + artist;
 	}
 
+	public boolean equals(Song song) {
+		return (this.name.equalsIgnoreCase(song.name) && this.artist.equalsIgnoreCase(song.artist));
+	}
 
 }
