@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import songLibrary.app.Song;
 import songLibrary.app.SongList;
 
@@ -21,9 +22,9 @@ public class SongLibraryController {
 	@FXML TextField yearInput;
 	@FXML TextField albumInput;
 	@FXML Text delConfirm;
-	@FXML static ListView<String> listView;
+	@FXML ListView<Song> listView;
 
-	static ObservableList<String> obsList;
+	private ObservableList<Song> obsList;
 
 	public static void main(String[] args){
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
@@ -39,7 +40,7 @@ public class SongLibraryController {
 		SongList songList = new SongList();
 		//always initialize with a readFile. The readFile will create a SongFile if file is not found
 		songList.readFile();
-		songList.list.add(song);
+		//songList.list.add(song);
 		//if you call sort, always call save immediately
 		songList.sort();
 		songList.save();
@@ -47,7 +48,7 @@ public class SongLibraryController {
 			System.out.println(songList.list.get(i).toString());
 		}
 		if (songList.list.size()==0) System.out.println("rip");
-		obsList = FXCollections.emptyObservableList();
+		/*obsList = FXCollections.emptyObservableList();
 		for (int i=0; i<songList.list.size(); i++){
 			Song temp= songList.list.get(i);
 			String tempinfo= temp.name + " - " + temp.artist;
@@ -55,12 +56,25 @@ public class SongLibraryController {
 		}
 		System.out.println(obsList.get(0));
 		listView.setItems(obsList);
-		listView.getSelectionModel().select(0);
+		listView.getSelectionModel().select(0);*/
 
 
 	}
 
+	public void start(Stage mainStage) {
+	      // create an ObservableList
+	      // from an ArrayList
+		  SongList songList = new SongList();
+		  //always initialize with a readFile. The readFile will create a SongFile if file is not found
+		  songList.readFile();
+		  for(int i = 0; i < songList.list.size(); i++) {
+				System.out.println(songList.list.get(i).toString());
+			}
+	      obsList = FXCollections.observableArrayList(songList.list);
+	      listView.setItems(obsList);
+	      listView.getSelectionModel().select(0);
 
+	   }
 	public void showItemInputDialog(ActionEvent e){
 		nameInput.setDisable(false);
 		artistInput.setDisable(false);
