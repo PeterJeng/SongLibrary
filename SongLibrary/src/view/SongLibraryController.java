@@ -11,26 +11,31 @@ public class SongLibraryController {
 	@FXML Button del;
 	@FXML Button edit;
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
 		// this will NOT affect the code
 		
 		Song song = new Song();
 
-		song.name = "halo";
-		song.album = "hello";
-		song.artist = "beyonce";
+		song.name = "test123";
+		song.album = "abc";
+		song.artist = "yes";
 		song.year = "2012";
-
+		 
 		SongList songList = new SongList();
+		//always initialize with a readFile. The readFile will create a SongFile if file is not found
+		songList.readFile();
+		songList.list.add(song);
 		
-		songList.songList.add(song);
-		
+		//if you call sort, always call save immediately
+		songList.sort();
 		songList.save();
-
-		System.out.println(song.toString());
-
-
+		
+		for(int i = 0; i < songList.list.size(); i++) {
+			System.out.println(songList.list.get(i).toString());
+		}
+		
+		
 	}
 
 	
