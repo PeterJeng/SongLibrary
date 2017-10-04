@@ -1,3 +1,4 @@
+//Peter Jeng && Jintao Hang
 package view;
 
 import javafx.collections.FXCollections;
@@ -11,6 +12,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import songLibrary.app.Song;
 import songLibrary.app.SongList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class SongLibraryController {
 	@FXML Button add;
@@ -82,8 +85,26 @@ public class SongLibraryController {
 	      	yearInput.setText(songList.list.get(0).year);
 	      	albumInput.setText(songList.list.get(0).album);
 	      }
+	      listView
+	        .getSelectionModel()
+	        .selectedIndexProperty()
+	        .addListener(
+	           (obs, oldVal, newVal) ->
+	               displayInfo());
 
 	   }
+	public void displayInfo(){
+		int index = listView.getSelectionModel().getSelectedIndex();
+		nameInput.setText(songList.list.get(index).name);
+      	artistInput.setText(songList.list.get(index).artist);
+      	yearInput.setText(songList.list.get(index).year);
+      	albumInput.setText(songList.list.get(index).album);
+      	/*Alert alert = new Alert(AlertType.INFORMATION);
+      	alert.setTitle("Error");
+      	alert.setContentText("Could not add song");
+
+      	alert.showAndWait();*/
+	}
 	public void showItemInputDialog(ActionEvent e){
 		nameInput.setDisable(false);
 		artistInput.setDisable(false);
@@ -129,7 +150,8 @@ public class SongLibraryController {
 	};
 	public void removeItemConfirmed(ActionEvent e){
 		//songList.list.remove(listView.getSelectionModel().selectedIndexProperty());
-		System.out.println(listView.getSelectionModel().selectedIndexProperty());
+		int index = listView.getSelectionModel().getSelectedIndex();
+		songList.list.remove(index);
 		songList.sort();
 		songList.save();
 		obsList.clear();
