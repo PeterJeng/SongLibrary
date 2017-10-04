@@ -106,9 +106,40 @@ public class SongList {
 		}
 	}
 	
-	//sorts the song by name and artist in lexographically ascending order
+	/*
+	 * sorts the song by name and artist in lexographically ascending order
+	 */
 	public void sort() {
 		Collections.sort(list);
+	}
+	
+	public int add(Song song) {
+		//check to see if list contains the song
+		//if it does, return -1 representing bad add
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).equals(song)) 
+				return -1;
+		}
+		
+		//add the song and sort
+		list.add(song);
+		
+		sort();
+		save();
+		
+		//return the index of the song in current list
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).equals(song))
+				return i;
+		}
+		
+		//this code shouldn't be reached
+		return -1;
+	}
+	
+	public void edit(Song song) {
+		
+		
 	}
 
 }
