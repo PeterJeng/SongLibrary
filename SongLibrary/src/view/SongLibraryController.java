@@ -24,7 +24,7 @@ public class SongLibraryController {
 	@FXML Text delConfirm;
 	@FXML ListView<Song> listView;
 
-	private ObservableList<Song> obsList;
+	private static ObservableList<Song> obsList;
 
 	public static void main(String[] args){
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
@@ -44,9 +44,11 @@ public class SongLibraryController {
 		//if you call sort, always call save immediately
 		songList.sort();
 		songList.save();
+		/*
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
 		}
+		*/
 		if (songList.list.size()==0) System.out.println("rip");
 		/*obsList = FXCollections.emptyObservableList();
 		for (int i=0; i<songList.list.size(); i++){
@@ -57,6 +59,9 @@ public class SongLibraryController {
 		System.out.println(obsList.get(0));
 		listView.setItems(obsList);
 		listView.getSelectionModel().select(0);*/
+		
+		obsList = FXCollections.observableArrayList(songList.list);
+		System.out.println(obsList.get(0).artist);
 
 
 	}
