@@ -3,6 +3,7 @@ package songLibrary.app;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import view.SongLibraryController;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -16,6 +17,11 @@ public class SongApp extends Application {
 		loader.setLocation(getClass().getResource("/view/SongLibrary.fxml"));
 
 		GridPane root = (GridPane)loader.load();
+		
+		SongLibraryController songLibraryController = 
+		         loader.getController();
+		songLibraryController.start(primaryStage);
+
 
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
