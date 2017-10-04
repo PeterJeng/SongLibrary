@@ -7,12 +7,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SongList {
-	public ArrayList<Song> songList = new ArrayList<Song>();
-	
-	public static File songFile = new File("SongFile.txt");
+	public ArrayList<Song> list = new ArrayList<Song>();
 
+	public static File songFile = new File("SongFile.txt");
 
 	/*
 	 * Saves the arraylist to songFile. Currently appends, but actual project will
@@ -23,11 +23,11 @@ public class SongList {
 		BufferedWriter bw = null;
 
 		try {
-			fw = new FileWriter(songFile, true);
+			fw = new FileWriter(songFile, false);
 			bw = new BufferedWriter(fw);
 
-			for (int i = 0; i < songList.size(); i++) {
-				bw.append(songList.get(i).toString());
+			for (int i = 0; i < list.size(); i++) {
+				bw.write(list.get(i).toString());
 
 				// This new line might cause future problem when we are reading from a file and
 				// we need to terminate the reader
@@ -59,11 +59,19 @@ public class SongList {
 	/*
 	 * Read the songFile and returns an ArrayList of songs
 	 */
-	public static ArrayList<Song> readFile() {
-		ArrayList<Song> songList = new ArrayList<Song>();
+	public void readFile() {
 
 		BufferedReader br = null;
 		FileReader fr = null;
+
+		// check if file exists, if it doesn't create a new SongFile
+		if (!songFile.exists()) {
+			try {
+				songFile.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 		String line;
 
@@ -74,9 +82,11 @@ public class SongList {
 			while ((line = br.readLine()) != null) {
 				Song song = new Song();
 
+				//each line represents information for a song
+				//setFields sets the song's instance field to the information given
 				song.setFields(line);
 
-				songList.add(song);
+				list.add(song);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -94,7 +104,11 @@ public class SongList {
 				ex.printStackTrace();
 			}
 		}
-
-		return songList;
 	}
+	
+	//sorts the song by name and artist in lexographically ascending order
+	public void sort() {
+		Collections.sort(list);
+	}
+
 }
