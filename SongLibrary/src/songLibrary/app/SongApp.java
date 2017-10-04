@@ -17,8 +17,8 @@ public class SongApp extends Application {
 		loader.setLocation(getClass().getResource("/view/SongLibrary.fxml"));
 
 		GridPane root = (GridPane)loader.load();
-		
-		SongLibraryController songLibraryController = 
+
+		SongLibraryController songLibraryController =
 		         loader.getController();
 		songLibraryController.start(primaryStage);
 

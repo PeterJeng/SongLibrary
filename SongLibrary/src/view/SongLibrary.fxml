@@ -29,9 +29,12 @@
 	<TextField fx:id="yearInput" GridPane.columnIndex="3" promptText="Year" disable="true"/>
 	<TextField fx:id="albumInput" GridPane.columnIndex="4" promptText="Album" disable="true"/>
     <Button fx:id="add" text="Add" GridPane.columnIndex="1" onAction="#showItemInputDialog" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="addConfirm" text="Confirm" GridPane.columnIndex="1" onAction="#showItemInputDialog" visible="false" GridPane.valignment="BOTTOM"/>
     <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="editConfirm" text="Confirm" GridPane.columnIndex="2" onAction="#showItemInputDialog" visible="false" GridPane.valignment="BOTTOM"/>
     <Button fx:id="del" text="Delete" GridPane.columnIndex="3" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
-    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" visible="false" disable="true" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="deConfirm" text="Confirm" GridPane.columnIndex="3" onAction="#showItemInputDialog" visible="false" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" visible="false" onAction="#cancellation" disable="true" GridPane.valignment="BOTTOM"/>
 
 
 	<padding>

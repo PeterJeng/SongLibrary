@@ -14,8 +14,11 @@ import songLibrary.app.SongList;
 
 public class SongLibraryController {
 	@FXML Button add;
+	@FXML Button addConfirm;
 	@FXML Button del;
+	@FXML Button deConfirm;
 	@FXML Button edit;
+	@FXML Button editConfirm;
 	@FXML Button cancel;
 	@FXML TextField nameInput;
 	@FXML TextField artistInput;
@@ -25,6 +28,7 @@ public class SongLibraryController {
 	@FXML ListView<Song> listView;
 
 	private ObservableList<Song> obsList;
+	private SongList songList;
 
 	public String hello;
 
@@ -66,7 +70,7 @@ public class SongLibraryController {
 	public void start(Stage mainStage) {
 	      // create an ObservableList
 	      // from an ArrayList
-		  SongList songList = new SongList();
+		  songList = new SongList();
 		  //always initialize with a readFile. The readFile will create a SongFile if file is not found
 		  songList.readFile();
 	      obsList = FXCollections.observableArrayList(songList.list);
@@ -93,14 +97,19 @@ public class SongLibraryController {
 		del.setDisable(true);
 		cancel.setDisable(false);
 		cancel.setVisible(true);
-		add.setText("Confirm");
+		add.setDisable(true);
+		addConfirm.setDisable(false);
+		addConfirm.setVisible(true);
+
 	};
 	public void removeItem(ActionEvent e){
 		edit.setDisable(true);
 		add.setDisable(true);
 		cancel.setDisable(false);
 		cancel.setVisible(true);
-		del.setText("Confirm");
+		del.setDisable(true);
+		deConfirm.setDisable(false);
+		deConfirm.setVisible(true);
 		delConfirm.setText("Are you sure you want to delete?");
 	};
 	public void showItemEditDialog(ActionEvent e){
@@ -113,5 +122,25 @@ public class SongLibraryController {
 		cancel.setDisable(false);
 		cancel.setVisible(true);
 		edit.setText("Confirm");
+	};
+	public void cancellation(ActionEvent e){
+		if (songList.list.size()!=0){
+	      	nameInput.setText(songList.list.get(0).name);
+	      	artistInput.setText(songList.list.get(0).artist);
+	      	yearInput.setText(songList.list.get(0).year);
+	      	albumInput.setText(songList.list.get(0).album);
+	    }
+		nameInput.setDisable(true);
+		artistInput.setDisable(true);
+		yearInput.setDisable(true);
+		albumInput.setDisable(true);
+		add.setDisable(false);
+		del.setDisable(false);
+		edit.setDisable(false);
+		addConfirm.setDisable(false);
+		deConfirm.setDisable(false);
+		editConfirm.setDisable(false);
+		cancel.setDisable(true);
+		cancel.setVisible(false);
 	};
 }
