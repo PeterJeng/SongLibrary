@@ -21,9 +21,9 @@ public class SongLibraryController {
 	@FXML TextField yearInput;
 	@FXML TextField albumInput;
 	@FXML Text delConfirm;
-	@FXML static ListView<SongList> listView;
+	@FXML static ListView<String> listView;
 
-	private static ObservableList<SongList> obsList;
+	static ObservableList<String> obsList;
 
 	public static void main(String[] args){
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
@@ -43,13 +43,19 @@ public class SongLibraryController {
 		//if you call sort, always call save immediately
 		songList.sort();
 		songList.save();
-		obsList = FXCollections.observableArrayList(songList);
-		listView.setItems(obsList);
-		listView.getSelectionModel().select(0);
-
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
 		}
+		if (songList.list.size()==0) System.out.println("rip");
+		obsList = FXCollections.emptyObservableList();
+		for (int i=0; i<songList.list.size(); i++){
+			Song temp= songList.list.get(i);
+			String tempinfo= temp.name + " - " + temp.artist;
+			obsList.add(tempinfo);
+		}
+		System.out.println(obsList.get(0));
+		listView.setItems(obsList);
+		listView.getSelectionModel().select(0);
 
 
 	}
