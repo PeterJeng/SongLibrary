@@ -23,7 +23,7 @@
 	<Text text="Artist Name           " GridPane.columnIndex="2" GridPane.valignment="TOP"/>
 	<Text text="Year" GridPane.columnIndex="3" GridPane.valignment="TOP"/>
 	<Text text="Album        " GridPane.columnIndex="4" GridPane.valignment="TOP"/>
-	<Text id="delConfirm" text="" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="3" visible="false"/>
+	<Text fx:id="delConfirm" text="" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 	<TextField fx:id="nameInput" GridPane.columnIndex="1" promptText="Song Name" disable="true" />
 	<TextField fx:id="artistInput" GridPane.columnIndex="2" promptText="Artist Name" disable="true"/>
 	<TextField fx:id="yearInput" GridPane.columnIndex="3" promptText="Year" disable="true"/>
