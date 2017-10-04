@@ -127,6 +127,16 @@ public class SongLibraryController {
 		deConfirm.setVisible(true);
 		delConfirm.setText("Are you sure you want to delete?");
 	};
+	public void removeItemConfirmed(ActionEvent e){
+		//songList.list.remove(listView.getSelectionModel().selectedIndexProperty());
+		System.out.println(listView.getSelectionModel().selectedIndexProperty());
+		songList.sort();
+		songList.save();
+		obsList.clear();
+		obsList = FXCollections.observableArrayList(songList.list);
+		listView.setItems(obsList);
+		cancellation(e);
+	};
 	public void showItemEditDialog(ActionEvent e){
 		nameInput.setDisable(false);
 		artistInput.setDisable(false);
@@ -136,7 +146,10 @@ public class SongLibraryController {
 		del.setDisable(true);
 		cancel.setDisable(false);
 		cancel.setVisible(true);
-		edit.setText("Confirm");
+		edit.setDisable(true);
+		edit.setVisible(false);
+		editConfirm.setDisable(false);
+		editConfirm.setVisible(true);
 	};
 	public void cancellation(ActionEvent e){
 		if (songList.list.size()!=0){
