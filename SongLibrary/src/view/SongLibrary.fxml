@@ -31,7 +31,7 @@
     <Button fx:id="add" text="Add" GridPane.columnIndex="1" onAction="#showItemInputDialog" GridPane.valignment="BOTTOM"/>
     <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
     <Button fx:id="del" text="Delete" GridPane.columnIndex="3" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
-    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" onAction="#removeItem" visible="false" disable="true" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" visible="false" disable="true" GridPane.valignment="BOTTOM"/>
 
 
 	<padding>

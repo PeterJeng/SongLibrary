@@ -25,7 +25,7 @@ public class SongLibraryController {
 	@FXML ListView<Song> listView;
 
 	private ObservableList<Song> obsList;
-	
+
 	public String hello;
 
 	public static void main(String[] args){
@@ -69,12 +69,15 @@ public class SongLibraryController {
 		  SongList songList = new SongList();
 		  //always initialize with a readFile. The readFile will create a SongFile if file is not found
 		  songList.readFile();
-		  for(int i = 0; i < songList.list.size(); i++) {
-				System.out.println(songList.list.get(i).stringWithDelimiter());
-			}
 	      obsList = FXCollections.observableArrayList(songList.list);
 	      listView.setItems(obsList);
 	      listView.getSelectionModel().select(0);
+	      if (songList.list.size()!=0){
+	      	nameInput.setText(songList.list.get(0).name);
+	      	artistInput.setText(songList.list.get(0).artist);
+	      	yearInput.setText(songList.list.get(0).year);
+	      	albumInput.setText(songList.list.get(0).album);
+	      }
 
 	   }
 	public void showItemInputDialog(ActionEvent e){
@@ -82,6 +85,10 @@ public class SongLibraryController {
 		artistInput.setDisable(false);
 		yearInput.setDisable(false);
 		albumInput.setDisable(false);
+		nameInput.clear();
+		artistInput.clear();
+		yearInput.clear();
+		albumInput.clear();
 		edit.setDisable(true);
 		del.setDisable(true);
 		cancel.setDisable(false);
