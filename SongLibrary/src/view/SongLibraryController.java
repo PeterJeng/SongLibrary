@@ -41,9 +41,9 @@ public class SongLibraryController {
 
 		Song song = new Song();
 
-		song.name = "test123";
+		song.name = "123";
 		song.album = "abc";
-		song.artist = "yes";
+		song.artist = "beyonce";
 		song.year = "2012";
 
 		SongList songList = new SongList();
@@ -53,11 +53,15 @@ public class SongLibraryController {
 		//if you call sort, always call save immediately
 		songList.sort();
 		songList.save();
-		/*
+		
+		int x = songList.add(song);
+		
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
 		}
-		*/
+		
+		System.out.println(x);
+		
 		if (songList.list.size()==0) System.out.println("rip");
 		/*obsList = FXCollections.emptyObservableList();
 		for (int i=0; i<songList.list.size(); i++){
