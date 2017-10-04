@@ -70,7 +70,7 @@ public class SongLibraryController {
 		  //always initialize with a readFile. The readFile will create a SongFile if file is not found
 		  songList.readFile();
 		  for(int i = 0; i < songList.list.size(); i++) {
-				System.out.println(songList.list.get(i).toString());
+				System.out.println(songList.list.get(i).stringWithDelimiter());
 			}
 	      obsList = FXCollections.observableArrayList(songList.list);
 	      listView.setItems(obsList);

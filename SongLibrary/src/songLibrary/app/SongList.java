@@ -27,7 +27,7 @@ public class SongList {
 			bw = new BufferedWriter(fw);
 
 			for (int i = 0; i < list.size(); i++) {
-				bw.write(list.get(i).toString());
+				bw.write(list.get(i).stringWithDelimiter());
 
 				// This new line might cause future problem when we are reading from a file and
 				// we need to terminate the reader

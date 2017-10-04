@@ -43,10 +43,9 @@ public class Song implements Comparable<Song>{
 	}
 
 	/*
-	 * Overrides the toString() method to return the Song's fields
 	 * Separates the song by delimiters of ;
 	 */
-	public String toString() {
+	public String stringWithDelimiter() {
 		return name + ";" + artist + ";" + album + ";" + year;
 	}
 
