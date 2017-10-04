@@ -149,7 +149,6 @@ public class SongLibraryController {
 		delConfirm.setText("Are you sure you want to delete?");
 	};
 	public void removeItemConfirmed(ActionEvent e){
-		//songList.list.remove(listView.getSelectionModel().selectedIndexProperty());
 		int index = listView.getSelectionModel().getSelectedIndex();
 		songList.list.remove(index);
 		songList.sort();
@@ -157,7 +156,19 @@ public class SongLibraryController {
 		obsList.clear();
 		obsList = FXCollections.observableArrayList(songList.list);
 		listView.setItems(obsList);
+		if (songList.list.size()==0){
+			nameInput.clear();
+			artistInput.clear();
+			yearInput.clear();
+			albumInput.clear();
+		}
 		cancellation(e);
+		if (index<songList.list.size()){
+			listView.getSelectionModel().select(index);
+		}
+		else if (index-1<songList.list.size()){
+			listView.getSelectionModel().select(index-1);
+		}
 	};
 	public void showItemEditDialog(ActionEvent e){
 		nameInput.setDisable(false);
@@ -174,12 +185,6 @@ public class SongLibraryController {
 		editConfirm.setVisible(true);
 	};
 	public void cancellation(ActionEvent e){
-		if (songList.list.size()!=0){
-	      	nameInput.setText(songList.list.get(0).name);
-	      	artistInput.setText(songList.list.get(0).artist);
-	      	yearInput.setText(songList.list.get(0).year);
-	      	albumInput.setText(songList.list.get(0).album);
-	    }
 		nameInput.setDisable(true);
 		artistInput.setDisable(true);
 		yearInput.setDisable(true);
