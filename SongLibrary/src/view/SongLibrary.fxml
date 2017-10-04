@@ -23,14 +23,15 @@
 	<Text text="Artist Name           " GridPane.columnIndex="2" GridPane.valignment="TOP"/>
 	<Text text="Year" GridPane.columnIndex="3" GridPane.valignment="TOP"/>
 	<Text text="Album        " GridPane.columnIndex="4" GridPane.valignment="TOP"/>
-	<TextField fx:id="nameInput" GridPane.columnIndex="1" promptText="-40.0" disable="true" />
-	<TextField fx:id="artistInput" GridPane.columnIndex="2" promptText="-40.0" disable="true"/>
-	<TextField fx:id="yearInput" GridPane.columnIndex="3" promptText="-40.0" disable="true"/>
-	<TextField fx:id="albumInput" GridPane.columnIndex="4" promptText="-40.0" disable="true"/>
+	<Text id="delConfirm" text="" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="3" visible="false"/>
+	<TextField fx:id="nameInput" GridPane.columnIndex="1" promptText="Song Name" disable="true" />
+	<TextField fx:id="artistInput" GridPane.columnIndex="2" promptText="Artist Name" disable="true"/>
+	<TextField fx:id="yearInput" GridPane.columnIndex="3" promptText="Year" disable="true"/>
+	<TextField fx:id="albumInput" GridPane.columnIndex="4" promptText="Album" disable="true"/>
     <Button fx:id="add" text="Add" GridPane.columnIndex="1" onAction="#showItemInputDialog" GridPane.valignment="BOTTOM"/>
     <Button fx:id="edit" text="Edit" GridPane.columnIndex="2" onAction="#showItemEditDialog" GridPane.valignment="BOTTOM"/>
     <Button fx:id="del" text="Delete" GridPane.columnIndex="3" onAction="#removeItem" GridPane.valignment="BOTTOM"/>
-    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" onAction="#removeItem" disable="true" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="cancel" text="Cancel" GridPane.columnIndex="4" onAction="#removeItem" visible="false" disable="true" GridPane.valignment="BOTTOM"/>
 
 
 	<padding>
