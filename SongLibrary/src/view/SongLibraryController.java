@@ -24,7 +24,9 @@ public class SongLibraryController {
 	@FXML Text delConfirm;
 	@FXML ListView<Song> listView;
 
-	private static ObservableList<Song> obsList;
+	private ObservableList<Song> obsList;
+	
+	public String hello;
 
 	public static void main(String[] args){
 		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
@@ -59,11 +61,6 @@ public class SongLibraryController {
 		System.out.println(obsList.get(0));
 		listView.setItems(obsList);
 		listView.getSelectionModel().select(0);*/
-		
-		obsList = FXCollections.observableArrayList(songList.list);
-		System.out.println(obsList.get(0).artist);
-
-
 	}
 
 	public void start(Stage mainStage) {
