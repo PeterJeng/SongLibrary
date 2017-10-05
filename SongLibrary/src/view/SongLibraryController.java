@@ -105,10 +105,10 @@ public class SongLibraryController {
       	albumInput.setText(songList.list.get(index).album);
 	}
 	public void showItemInputDialog(ActionEvent e){
-		nameInput.setDisable(false);
-		artistInput.setDisable(false);
-		yearInput.setDisable(false);
-		albumInput.setDisable(false);
+		nameInput.setEditable(true);
+		artistInput.setEditable(true);
+		yearInput.setEditable(true);
+		albumInput.setEditable(true);
 		nameInput.clear();
 		artistInput.clear();
 		yearInput.clear();
@@ -177,10 +177,10 @@ public class SongLibraryController {
 		}
 	};
 	public void showItemEditDialog(ActionEvent e){
-		nameInput.setDisable(false);
-		artistInput.setDisable(false);
-		yearInput.setDisable(false);
-		albumInput.setDisable(false);
+		nameInput.setEditable(true);
+		artistInput.setEditable(true);
+		yearInput.setEditable(true);
+		albumInput.setEditable(true);
 		add.setDisable(true);
 		del.setDisable(true);
 		cancel.setDisable(false);
@@ -222,10 +222,10 @@ public class SongLibraryController {
 
 	};
 	public void cancellation(ActionEvent e){
-		nameInput.setDisable(true);
-		artistInput.setDisable(true);
-		yearInput.setDisable(true);
-		albumInput.setDisable(true);
+		nameInput.setEditable(false);
+		artistInput.setEditable(false);
+		yearInput.setEditable(false);
+		albumInput.setEditable(false);
 		add.setDisable(false);
 		del.setDisable(false);
 		edit.setDisable(false);
