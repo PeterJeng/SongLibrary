@@ -100,6 +100,12 @@ public class SongLibraryController {
 	      	alert.setContentText("Song already in list");
 	      	alert.showAndWait();
 		}
+		else if (attempt==-2){
+	      	Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("Not enough information. Please provide Song name and Artist");
+	      	alert.showAndWait();
+		}
 		else {
 			listView.getSelectionModel().select(attempt);
 		}
@@ -174,6 +180,13 @@ public class SongLibraryController {
 			Alert alert = new Alert(AlertType.INFORMATION);
 	      	alert.setTitle("Error");
 	      	alert.setContentText("A song already exists with the same name and artist");
+	      	alert.showAndWait();
+	      	listView.getSelectionModel().select(index);
+		}
+		else if (attempt==-3){
+			Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("Not enough information. Please provide Song name and Artist");
 	      	alert.showAndWait();
 	      	listView.getSelectionModel().select(index);
 		}
