@@ -93,7 +93,7 @@ public class SongLibraryController {
 		obsList.clear();
 		obsList = FXCollections.observableArrayList(songList.list);
 		listView.setItems(obsList);
-		cancellation(e);
+		clearing(e);
 		if (attempt==-1){
 	      	Alert alert = new Alert(AlertType.INFORMATION);
 	      	alert.setTitle("Error");
@@ -135,7 +135,7 @@ public class SongLibraryController {
 			yearInput.clear();
 			albumInput.clear();
 		}
-		cancellation(e);
+		clearing(e);
 		if (index<songList.list.size()){
 			listView.getSelectionModel().select(index);
 		}
@@ -168,7 +168,7 @@ public class SongLibraryController {
 		obsList.clear();
 		obsList = FXCollections.observableArrayList(songList.list);
 		listView.setItems(obsList);
-		cancellation(e);
+		clearing(e);
 		if (attempt==-1){
 	      	Alert alert = new Alert(AlertType.INFORMATION);
 	      	alert.setTitle("Error");
@@ -196,6 +196,34 @@ public class SongLibraryController {
 
 	};
 	public void cancellation(ActionEvent e){
+		int index = listView.getSelectionModel().getSelectedIndex();
+		nameInput.setEditable(false);
+		artistInput.setEditable(false);
+		yearInput.setEditable(false);
+		albumInput.setEditable(false);
+		add.setDisable(false);
+		del.setDisable(false);
+		edit.setDisable(false);
+		add.setVisible(true);
+		del.setVisible(true);
+		edit.setVisible(true);
+		addConfirm.setDisable(true);
+		deConfirm.setDisable(true);
+		editConfirm.setDisable(true);
+		addConfirm.setVisible(false);
+		deConfirm.setVisible(false);
+		editConfirm.setVisible(false);
+		delConfirm.setText("");
+		cancel.setDisable(true);
+		cancel.setVisible(false);
+		Song song= songList.list.get(index);
+		nameInput.setText(song.name);
+		artistInput.setText(song.artist);
+		yearInput.setText(song.year);
+		albumInput.setText(song.album);
+
+	};
+	public void clearing(ActionEvent e){
 		nameInput.setEditable(false);
 		artistInput.setEditable(false);
 		yearInput.setEditable(false);
