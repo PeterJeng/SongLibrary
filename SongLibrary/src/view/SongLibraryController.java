@@ -35,45 +35,6 @@ public class SongLibraryController {
 
 	public String hello;
 
-	public static void main(String[] args){
-		// ALL OF THE THINGS BELOW ARE JUST TESTS TO MAKE SURE PROGRAM WORKS, deleting
-		// this will NOT affect the code
-
-		Song song = new Song();
-
-		song.name = "123";
-		song.album = "abc";
-		song.artist = "beyonce2";
-		song.year = "2012";
-
-		SongList songList = new SongList();
-		//always initialize with a readFile. The readFile will create a SongFile if file is not found
-		songList.readFile();
-		//songList.list.add(song);
-		//if you call sort, always call save immediately
-		songList.sort();
-		songList.save();
-
-		int x = songList.edit(3, song);
-
-		for(int i = 0; i < songList.list.size(); i++) {
-			System.out.println(songList.list.get(i).toString());
-		}
-
-		System.out.println(x);
-
-		if (songList.list.size()==0) System.out.println("rip");
-		/*obsList = FXCollections.emptyObservableList();
-		for (int i=0; i<songList.list.size(); i++){
-			Song temp= songList.list.get(i);
-			String tempinfo= temp.name + " - " + temp.artist;
-			obsList.add(tempinfo);
-		}
-		System.out.println(obsList.get(0));
-		listView.setItems(obsList);
-		listView.getSelectionModel().select(0);*/
-	}
-
 	public void start(Stage mainStage) {
 	      // create an ObservableList
 	      // from an ArrayList
@@ -137,6 +98,12 @@ public class SongLibraryController {
 	      	Alert alert = new Alert(AlertType.INFORMATION);
 	      	alert.setTitle("Error");
 	      	alert.setContentText("Song already in list");
+	      	alert.showAndWait();
+		}
+		else if (attempt==-2){
+	      	Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("Not enough information. Please provide Song name and Artist");
 	      	alert.showAndWait();
 		}
 		else {
@@ -213,6 +180,13 @@ public class SongLibraryController {
 			Alert alert = new Alert(AlertType.INFORMATION);
 	      	alert.setTitle("Error");
 	      	alert.setContentText("A song already exists with the same name and artist");
+	      	alert.showAndWait();
+	      	listView.getSelectionModel().select(index);
+		}
+		else if (attempt==-3){
+			Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("Not enough information. Please provide Song name and Artist");
 	      	alert.showAndWait();
 	      	listView.getSelectionModel().select(index);
 		}

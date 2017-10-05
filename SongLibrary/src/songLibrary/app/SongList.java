@@ -105,38 +105,41 @@ public class SongList {
 			}
 		}
 	}
-	
+
 	/*
 	 * sorts the song by name and artist in lexographically ascending order
 	 */
 	public void sort() {
 		Collections.sort(list);
 	}
-	
+
 	public int add(Song song) {
 		//check to see if list contains the song
 		//if it does, return -1 representing bad add
+		if ((song.name.equals("")) || (song.artist.equals(""))){
+			return -2;
+		}
 		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).equals(song)) 
+			if(list.get(i).equals(song))
 				return -1;
 		}
-		
+
 		//add the song and sort
 		list.add(song);
-		
+
 		sort();
 		save();
-		
+
 		//return the index of the song in current list
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i).equals(song))
 				return i;
 		}
-		
+
 		//this code shouldn't be reached
 		return -1;
 	}
-	
+
 	/*
 	 * edits the song inside the list
 	 * Parameter: indexOfSong to be edited, newSong is the new Song information to be edited
@@ -145,40 +148,43 @@ public class SongList {
 	public int edit(int indexOfSong, Song newSong) {
 		Song oldSong = list.get(indexOfSong);
 		//check to see if all values are the same as the old song, return -1 if true
-		if(oldSong.equals(newSong)  
+		if ((newSong.name.equals("")) || (newSong.artist.equals(""))){
+			return -3;
+		}
+		if(oldSong.equals(newSong)
 			&& oldSong.album.equals(newSong.album)
 			&& oldSong.year.equals(newSong.year))
-			return -1;	
-		
+			return -1;
+
 		for(int i = 0; i < list.size(); i++) {
 			//skip the loop at the indexOfSong so we don't compare the same song if the user didn't change name and artist
 			if(i == indexOfSong)
 				continue;
-			
+
 			//if the song at index i is equal to newSong, the edit can't happen due to duplicate name and artist
 			if(list.get(i).equals(newSong))
 				return -2;
 		}
-		
+
 		//change the index of the current song to the information in newSong
 		list.get(indexOfSong).name = newSong.name;
 		list.get(indexOfSong).artist = newSong.artist;
 		list.get(indexOfSong).album = newSong.album;
 		list.get(indexOfSong).year = newSong.year;
-		
+
 		//sort and save the list
 		sort();
 		save();
-		
+
 		//return index of the new song
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i).equals(newSong))
 				return i;
 		}
-			
+
 		//dead code
 		return -2;
-		
+
 	}
 
 }
