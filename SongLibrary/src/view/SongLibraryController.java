@@ -43,7 +43,7 @@ public class SongLibraryController {
 
 		song.name = "123";
 		song.album = "abc";
-		song.artist = "beyonce";
+		song.artist = "beyonce2";
 		song.year = "2012";
 
 		SongList songList = new SongList();
@@ -54,7 +54,7 @@ public class SongLibraryController {
 		songList.sort();
 		songList.save();
 		
-		int x = songList.add(song);
+		int x = songList.edit(3, song);
 		
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
