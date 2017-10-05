@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 
-public class SongApp extends Application {
+public class SongLib extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 

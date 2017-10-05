@@ -53,15 +53,15 @@ public class SongLibraryController {
 		//if you call sort, always call save immediately
 		songList.sort();
 		songList.save();
-		
+
 		int x = songList.edit(3, song);
-		
+
 		for(int i = 0; i < songList.list.size(); i++) {
 			System.out.println(songList.list.get(i).toString());
 		}
-		
+
 		System.out.println(x);
-		
+
 		if (songList.list.size()==0) System.out.println("rip");
 		/*obsList = FXCollections.emptyObservableList();
 		for (int i=0; i<songList.list.size(); i++){
@@ -103,11 +103,6 @@ public class SongLibraryController {
       	artistInput.setText(songList.list.get(index).artist);
       	yearInput.setText(songList.list.get(index).year);
       	albumInput.setText(songList.list.get(index).album);
-      	/*Alert alert = new Alert(AlertType.INFORMATION);
-      	alert.setTitle("Error");
-      	alert.setContentText("Could not add song");
-
-      	alert.showAndWait();*/
 	}
 	public void showItemInputDialog(ActionEvent e){
 		nameInput.setDisable(false);
@@ -133,13 +128,20 @@ public class SongLibraryController {
 		song.album = albumInput.getText();
 		song.artist = artistInput.getText();
 		song.year = yearInput.getText();
-		songList.list.add(song);
-		songList.sort();
-		songList.save();
+		int attempt= songList.add(song);
 		obsList.clear();
 		obsList = FXCollections.observableArrayList(songList.list);
 		listView.setItems(obsList);
 		cancellation(e);
+		if (attempt==-1){
+	      	Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("Song already in list");
+	      	alert.showAndWait();
+		}
+		else {
+			listView.getSelectionModel().select(attempt);
+		}
 
 	};
 	public void removeItem(ActionEvent e){
@@ -187,6 +189,37 @@ public class SongLibraryController {
 		edit.setVisible(false);
 		editConfirm.setDisable(false);
 		editConfirm.setVisible(true);
+	};
+	public void confirmItemEditDialog(ActionEvent e){
+		Song song = new Song();
+		song.name = nameInput.getText();
+		song.album = albumInput.getText();
+		song.artist = artistInput.getText();
+		song.year = yearInput.getText();
+		int index = listView.getSelectionModel().getSelectedIndex();
+		int attempt= songList.edit(index, song);
+		obsList.clear();
+		obsList = FXCollections.observableArrayList(songList.list);
+		listView.setItems(obsList);
+		cancellation(e);
+		if (attempt==-1){
+	      	Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("No changes occured. Edit was same as original");
+	      	alert.showAndWait();
+	      	listView.getSelectionModel().select(index);
+		}
+		else if (attempt==-2){
+			Alert alert = new Alert(AlertType.INFORMATION);
+	      	alert.setTitle("Error");
+	      	alert.setContentText("A song already exists with the same name and artist");
+	      	alert.showAndWait();
+	      	listView.getSelectionModel().select(index);
+		}
+		else {
+			listView.getSelectionModel().select(attempt);
+		}
+
 	};
 	public void cancellation(ActionEvent e){
 		nameInput.setDisable(true);
